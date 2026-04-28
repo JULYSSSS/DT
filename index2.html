@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <TITLE>Short-run Langevin Dynamics with Warm Start for Efficient Visual Digital Twin Updating in Operating Condition Recognition</TITLE>
+  <META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+
+  <META content=IE=Edge,chrome=1 http-equiv=X-UA-Compatible>
+  <LINK rel=stylesheet href="css/style.css" media=screen>
+  <STYLE type=text/css>
+    @media Print {
+      #STTBimg {
+        DISPLAY: none
+      }
+
+      #STTBimg2 {
+        DISPLAY: none
+      }
+    }
+  </STYLE>
+  <style type="text/css">
+    body {
+      background: #FFFFFF;
+      text-align: center;
+    }
+
+    div {
+      width: 970px;
+      margin: 0 auto;
+      background: #fff;
+      text-align: left;
+    }
+
+    center {
+    display: block;
+    text-align: -webkit-center;
+    unicode-bidi: isolate;
+    }
+
+    .STYLE2 {
+      font-size: 18px
+    }
+
+    .STYLE6 {
+      font-size: 24pt
+    }
+
+    .STYLE8 {
+      color: #CC0000
+    }
+
+    .STYLE14 {
+      color: #000000;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .STYLE15 {
+      color: #000000
+    }
+
+    .STYLE16 {
+      font-size: 22px
+    }
+
+    .STYLE20 {
+      color: #FF0000;
+      font-weight: bold;
+    }
+
+    .STYLE22 {
+      color: #0000FF
+    }
+
+    .div-table-row {
+    display: table-row;
+    width: auto;
+    clear: both;
+    } 
+
+    .div-table-col-2 {
+      float: left;
+      display: table-column;
+      width: 48%;
+    }
+
+    .div-table-col-3 {
+    float: left;
+    display: table-column;
+    width: 33%;
+  }
+
+  h4 {
+    font-size: 24px;
+    margin: 30px 15px 20px 0;
+  }
+
+  .div-table-col-2-2 {
+    float: left;
+    display: table-column;
+    width: 52%;
+  }
+
+  .div-table-col-2-1 {
+    float: left;
+    display: table-column;
+    width: 43%;
+  }
+
+  img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+  }
+
+
+body{
+	font-family:times, serif;
+  background: #FFFFFF;
+  text-align: center;
+	/* background-color:#eee; */
+}
+h1{
+	font-size: 24pt;
+	margin: 0 auto;
+	letter-spacing: -1px;
+	alignment-baseline: middle;
+	text-align-last: center;
+}
+h2{
+	font-size: 28px;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+h3{
+	font-size:20px;
+	margin:10px 0 20px 0;
+}
+
+h5{
+	font-size:18px;
+	margin:3px 0 3px 0;
+}
+p{
+	font-size:16px;
+	line-height:20px;
+	margin:0 0 15px 0;
+}
+a{
+	text-decoration:none;
+	color:#0b8bbb;
+}
+a:hover{
+	color: #1C68E3;
+	/*margin-left: 5px;*/
+}
+
+.line{
+	clear: both;
+	border-bottom: 2px #608FDA solid;
+	width: 100%;
+	margin:20 0 0 0;
+}
+
+.line-seg{
+	clear: both;
+	border-bottom: 2px #B40431 solid;
+	width: 100%;
+	margin:10 0 0 0;
+}
+/* ------------ */
+/* -- Header -- */
+/* ------------ */
+#header{
+	float: left;
+	width: 100%;
+	height: 300px;
+	margin: 0 auto;
+	background-color: #CBF0FE;
+	clear: both;
+}
+#header #contact-details{
+	float: left;
+	width: 400px;
+	margin-top: 18px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+#header #header-content .contact{
+	font-size:16px;
+	color:#888;
+	margin:0;
+}
+#header #header-content .contact span{
+	color: #444;
+	width: 200px;
+	float: left;
+	margin-left: 10px;
+}
+#header #header-photo{
+	float: none;
+	height: auto;
+	width: 960px;
+	padding: 0px;
+	text-align: center;
+	clear: none;
+	margin: 0 auto;
+	padding: 120px 0px 0px 0;
+}
+/* ------------- */
+/* -- Content -- */
+/* ------------- */
+#content .cv-section{
+	width: auto;
+	background-color: #D8ECF5;
+	margin: 0 auto;
+}
+
+#content .cv-section h4.title{
+	font-size: 22pt;
+	color: #0b8bbb;
+	margin: 0px 0px 0px 0px;
+	background-color: #A6CAF0;
+	text-align:left
+}
+#content .cv-section h4.meta{
+	font-size: 14pt;
+	color: #777;
+}
+
+#content .cv-section p{
+	font-size: 14pt;
+	color: #555;
+	letter-spacing: 0;
+	margin: 5px 5px 5px 15px;
+}
+#content .cv-section-item{
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 0 0 10px #aaa;
+	-moz-box-shadow: 0 0 10px #aaa;
+	box-shadow: 0 0 10px #aaa;
+	height: auto;
+	width: 960px;
+	margin: 0 auto;
+}
+
+#content .cv-section-item2{
+	background-color: #E4E4E4;
+	-webkit-box-shadow: 0 0 10px #aaa;
+	-moz-box-shadow: 0 0 10px #aaa;
+	box-shadow: 0 0 10px #aaa;
+	height: auto;
+	width: 960px;
+	margin: 0 auto;
+	padding: 5px 5px 5px 5px;
+}
+
+#content .cv-section2{
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+
+#content .cv-section2 h4.title{
+	font-size: 22pt;
+	color: #0b8bbb;
+	margin: 0px 0px 0px 0px;
+	background-color: #A6CAF0;
+}
+#content .cv-section2 h4.meta{
+	font-size: 14pt;
+	color: #777;
+}
+
+#content .cv-section2 p{
+	font-size: 14pt;
+	color: #555;
+	letter-spacing: 0;
+	margin: 5px 5px 5px 15px;
+	alignment-baseline: middle;
+}
+
+#content .cv-section2 p2{
+	font-size: 14pt;
+	color: #858585;
+	letter-spacing: 0;
+	margin: 5px 5px 5px 15px;
+	alignment-baseline: middle;
+}
+
+.div-table-reference {
+	width:auto;
+	background-color:#f7f7f9;
+ 	padding:9px 14px;
+  	border:1px solid #e1e1e8; 
+  	border-radius:4px;
+   	margin-bottom:14px;
+	margin-right: 14px;
+}
+
+.div-table
+{
+	display:table;         
+	width:auto;         
+	/*background-color:#eee;*/
+	/*border:1px solid  #666666;         */
+	border-spacing:0px;/*cellspacing:poor IE support for  this*/
+}
+
+.div-table-col-single
+{
+	float:left;/*fix for  buggy browsers*/
+	display:table-column;         
+	width:96%;
+   
+}
+
+.div-table-col
+{
+	float:left;/*fix for  buggy browsers*/
+	display:table-column;         
+	width:48%;
+	
+}
+
+.div-table-col-4
+{
+	float:left;/*fix for  buggy browsers*/
+	display:table-column;         
+	width:24%;
+	border:1px solid  #ccc;  
+	background-color:#ccc;  
+}
+
+.div-table-col-3
+{
+	float:left;/*fix for  buggy browsers*/
+	display:table-column;         
+	width:32%;
+	border:0px solid ; 
+
+}
+
+.div-table-col-3s
+{
+	float:left;/*fix for  buggy browsers*/
+	display:table-column;         
+	width:32%;
+	border:0px solid ;  
+	margin-bottom: 20px;
+  margin-top: -13px;
+}
+
+.div-table-col-full
+{
+	float:left;/*fix for  buggy browsers*/
+	display:table-column;         
+	width:100%;
+	border:1px solid  #ccc;  
+	background-color:#ccc;  
+}
+
+.bib_table{
+	background-color: #E8E8E8 ;
+	border: 1px #808080 solid;
+	border-radius: 4px;
+	font: "Ubuntu Mono";
+	padding: 5px 5px 5px 5px;
+	margin: 5px;
+	font-size:12px;
+	line-height: 16px;
+}
+  </style>
+
+
+  <META name=GENERATOR content="MSHTML 9.00.8112.16441">
+</head>
+
+<body class=" hasGoogleVoiceExt" screen_capture_injected="true">
+
+  <div class="container">
+    <br><br>
+    <h1 class="STYLE6" style="TEXT-ALIGN: center"><span class="STYLE6" style="TEXT-ALIGN: center">Short-run Langevin Dynamics with Warm Start for Efficient Visual Digital Twin Updating in Operating Condition Recognition</span></H1>
+    <!-- <h1 class="STYLE6" style="TEXT-ALIGN: center">Learning Energy-Based Models for Video Synthesis </H1> -->
+    <br>
+    <span class="STYLE2"><br>
+    </span>
+    <p style='text-align: center;'>
+      <span style="font-size: 18px">
+        Defu Yang,
+      </span>
+      <span style="font-size: 18px">
+        <a class='urllink' href="http://faculty.neu.edu.cn/lusw/zh_cn/index.htm"  title='' rel='nofollow'>Shaowen Lu</a>,
+      </span>
+      <span style="font-size: 18px">
+        Jing Yan
+      </span>
+      <br>
+    </p>
+    <!-- <p class='vspace STYLE2' style='text-align: center;'>
+      University of California, Los Angeles (UCLA), USA </p> -->
+
+
+    <div class=vspace> </div>
+    <br>
+    <!-- <h2 align="center">Abstract</h2> -->
+    <P align="justify">
+        <!-- This paper proposes an energy-based generative
+      video modeling framework with hierarchical latent variables for
+      learning complex spatiotemporal dynamics. Conventional latent
+      variable models typically rely on fixed Gaussian priors, whose
+      limited expressive capacity poses significant challenges in modeling complex dynamic patterns in videos and time-series data.
+      To overcome the representational limitations of fixed Gaussian
+      priors, we introduce layer-wise energy functions for each latent
+      variable, enabling the capture of intra-layer contextual structures
+      while jointly modeling and correcting the dependencies across
+      different layers of latent variables. In addition, we employ shortrun MCMC as the inference engine for latent variables, using
+      a finite number of Langevin dynamics steps to approximate the
+      posterior distribution, thereby avoiding the need for separate
+      inference networks such as variational encoders. Experimental
+      results demonstrate that the proposed method significantly outperforms variational autoencoder (VAE)-based generative models
+      in terms of generation quality and temporal consistency.  -->
+    </P>
+    <!-- <div class=line> </div> -->
+    <!-- <p></p>
+    <h2>Paper </h2>
+    <P>The CVPR paper can be downloaded <a class=urllink title="" href="./STGConvNet_file/doc/STGConvNet.pdf"
+        rel=nofollow><span class="STYLE20">here</span></a>. </P>
+    <P>The CVPR tex file can be downloaded <a class=urllink title=""
+        href="./STGConvNet_file/tex/STGConvNet_CVPR2017_tex.zip" rel=nofollow><span class="STYLE20">here</span></a>.
+    </P>
+    <P>The TPAMI paper can be downloaded <a class=urllink title="" href="./STGConvNet_file/doc/STGConvNet_PAMI.pdf"
+        rel=nofollow><span class="STYLE20">here</span></a>. </P>
+    <P>The TPAMI tex file can be downloaded <a class=urllink title=""
+        href="./STGConvNet_file/tex/STGConvNet_PAMI_camera_ready.zip" rel=nofollow><span
+          class="STYLE20">here</span></a>. </P>
+    <P>The poster can be downloaded <a class=urllink title="" href="./STGConvNet_file/poster/cvpr_poster.pdf"
+        rel=nofollow><span class="STYLE20">here</span></a>. </P>
+    <div class=vspace></div>
+
+    <h2>Code and Data</h2>
+    <div>
+      <p>The <span class="STYLE22">Matlab</span> code and data for all experiments can be downloaded <a class=urllink
+          title="" href="./STGConvNet_file/code/STGConvNet_code.zip" rel=nofollow><span class="STYLE20">here</span></a>.
+      </p>
+      <p>The <span class="STYLE22">Python</span> code using tensorflow for synthesis experiment can be downloaded <a
+          class=urllink title="" href="./STGConvNet_file/code/STGConvNet-tensorflow.zip" rel=nofollow><span
+            class="STYLE20">here</span></a> or <a href="https://github.com/zilongzheng/STGConvNet"
+          class="STYLE20">Github</a>. </p>
+      <p>If you wish to use our code, please cite the following paper : </p>
+      <div class=div-table-reference>
+        <strong>Synthesizing Dynamic Patterns by Spatial-Temporal Generative ConvNet</strong><br>
+        Jianwen Xie, Song-Chun Zhu, Ying Nian Wu<br>
+        <em>IEEE Conference on Computer Vision and Pattern Recognition (CVPR) </em>2017 <br>
+      </div>
+
+      <div class=div-table-reference>
+        <strong>Learning Energy-based Spatial-Temporal Generative ConvNet for Dynamic Patterns</strong><br>
+        Jianwen Xie, Song-Chun Zhu, Ying Nian Wu<br>
+        <em>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI) </em>2019<br>
+      </div>
+    </div>
+
+    <div class=vspace></div>
+-->
+     <div class=line> </div>
+    <h2>Code</h2>
+     <p>The Python code for all experiments can be downloaded 
+       <a href=""  title='' rel='nofollow' style="color: red;">here</a> .
+    </p> 
+     <h2>Data</h2>
+     <p>The data can be downloaded 
+        <a href="https://pan.baidu.com/s/1rbLASmtr_ofmwPJHFMMOeA?pwd=ruhx "  title='' rel='nofollow' style="color: red;">here</a> .
+    </p> 
+    <div class=line> </div>
+    <p></p> 
+    <h2>Experiments</h2>
+    <h3 class="STYLE16">Experiment 1: UCF101 Dataset</h3>
+    <!-- <p class="STYLE14">Exp 1.1: Analysis of Video Generation Quality: </p> -->
+    <!-- <p class="STYLE15"> In each example, the first one is the observed video, the other three are the synthesized
+      videos.</p> -->
+    <form id="exp_texture" align='center'>
+      <div class="div-table" align='center'>
+        <div class="div-table-col-2" >
+            <center>
+              <img src="./results/merged_UCF.gif">
+            </center>
+
+          </div>
+      </div>
+    </form>
+
+    <div class=line> </div>
+    <h3 class="STYLE16">Experiment 2: Traffic Dataset</h3>
+    <!-- <p class="STYLE8 STYLE15">In each example, the first one is the ground truth video, the second one is the occluded
+      training video, and the third one is the recovered result.</p> -->
+        <form id="exp_texture" align='center'>
+      <div class="div-table" align='center'>
+        <div class="div-table-col-2" >
+            <center>
+              <img src="./results/merged_traffic.gif">
+            </center>
+
+          </div>
+      </div>
+    </form> 
+  
+  <!-- <div class=line> </div>
+  <h4>
+    <center><a class='urllink' href='#' title='' rel='nofollow'>Top</a> </center>
+  </h4> -->
+  </div>
+</div>
+</body>
+
+</html>
